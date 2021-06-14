@@ -80,8 +80,7 @@ class CSRF {
 				]);
 				setcookie($this->getCookie, password_hash($this->getElement($this->getToken), PASSWORD_DEFAULT), time()+$this->tokenTime, "/");
 			default:
-				return $this->getElement($this->getToken);	
-			break;
+				return $this->getElement($this->getToken);
 		}
 	}
 	public function checkToken($value){
@@ -92,12 +91,10 @@ class CSRF {
 			case $value != $this->getElement($this->getToken):
 				$this->endToken();
 				return false;
-			break;
 			default:
 				/* Token is valid, request accepted. */
 				$this->endToken();
 				return true;
-			break;
 		}
 	}
 }
